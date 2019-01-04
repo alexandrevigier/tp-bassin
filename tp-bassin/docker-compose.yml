@@ -1,0 +1,19 @@
+version: '3.6'
+
+services:
+    apache:
+        build:
+            context: ./
+            dockerfile: Dockerfile
+        ports:
+          - '8000:30000'
+    db:
+        image: 'mariadb:10.4'
+        environment:
+          - MYSQL_ROOT_PASSWORD=Ploum45!
+          - MYSQL_DATABASE=tpDocker
+    
+    adminer:
+        image: 'adminer:4.7'
+        ports:
+          - '8080:50000'
